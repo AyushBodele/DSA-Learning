@@ -1,12 +1,19 @@
-let arr = [10, 20, 1, 47, -7, -8];
-count = 0
-function searchElement(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < 0) {
-      count++;
+function secondLargest(arr){
+  let firstLargest = -Infinity;
+  let secondLargest = -Infinity
+
+  for(let i=0; i <arr.length; i++){
+    if(arr[i] > firstLargest){
+      secondLargest = firstLargest
+      firstLargest = arr[i]
+    }
+    else if(arr[i] > secondLargest && arr[i] != firstLargest){
+      secondLargest = arr[i]
     }
   }
-  return count;
+  return secondLargest
 }
-const result = searchElement(arr); // returns 3
-console.log(result); // Output: 3
+let arr = [10, 20, 20, 15]
+const result = secondLargest(arr)
+
+console.log(result)
